@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   backend:
     build: ./backend
@@ -7,10 +8,8 @@ services:
     environment:
       - MONGO_URI=mongodb+srv://i202424:waleedsufi123@task5.njfplee.mongodb.net/user?retryWrites=true&w=majority&appName=Task5
   frontend:
-    build: ./frontend
+    build: ./frontend/user-data-form # Ensure this path points to your React app's Dockerfile
     ports:
-      - "80:80"
-    environment:
-      - BACKEND_URL=http://backend:5000
+      - "80:3000" # Map port 3000 in the container to port 80 on the host
     depends_on:
       - backend
